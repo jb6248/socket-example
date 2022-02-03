@@ -3,6 +3,12 @@ import time
 import dataclasses
 from typing import List
 
+# Here's a short example of how to convert a python class
+# into a string of bytes, and back.
+# Of course, on the client side (c++) you'll need to find a way
+# to emulate `struct.unpack` It should be relatively straightforward
+# since the struct packing and unpacking is based on C structs.
+# https://docs.python.org/3/library/struct.html
 
 @dataclasses.dataclass
 class Point:
@@ -25,4 +31,4 @@ def test():
     print('point: %s'%p)
     print('bytes: %s'%bs)
     print('parsed: %s'%unit)
-    assert unit == p
+    assert unit == p # this fails since the precision isn't kept up that well (difference of ~0.0001)
